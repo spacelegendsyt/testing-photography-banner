@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  <head>
+    <title>Photography page</title>
+    <meta charset="utf-8">
+    
+    <!--Header & body font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    
+    
+    
+    <style>
+      /* text stuff*/
+      body {
+        background-color: #0f0f0f;
+        width: 1440px;
+        margin: 0 auto;
+        
+        font-size: 20px;
+        color: #E0E0E0;
+        font-family: "Source Sans 3", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+      }
+      
+       p {
+        font-size: 20px;
+        color: #E0E0E0;
+        font-family: "Source Sans 3", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+      }
+      
+      h1 {
+        font-family: "Sedgwick Ave Display", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.2em;
+      }
+      
+      h2 {
+        font-family: "Sedgwick Ave Display", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.7em;
+      }
+      
+      h3 {
+        font-family: "Sedgwick Ave Display", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2em;
+      }
+      
+       /* Header sutff */
+      header {
+        background-color: #171717;
+        height: 100px;
+        position: sticky;
+        top: 0;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 50px;
+        z-index: 1000;
+      }
+      
+      ul {
+        list-style: none;
+        font-size: 1em;
+        color: #E0E0E0;
+        text-align: right;
+        
+        font-family: "Source Sans 3", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        text-transform: uppercase;
+      }
+
+      li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      
+      li:last-child {
+        margin-right: 0;
+      }
+      
+      ul li a {
+        color: #E0E0E0;
+        text-decoration: none;
+      }
+      
+      ul li a:hover {
+        text-decoration: underline;
+      }
+      
+    /* Carousel stuff */  
+      
+    /* Code copied from: https://www.youtube.com/watch?v=KD1Yo8a_Qis
+       Author: Coding2Go on yt
+       Title: Build Infinite Carousel Animation in 4 Minutes
+       Description: Carousel of images that loop/ scroll infinitely 
+                   to the left. 
+       Date retrieved: Nov 21, 2025
+        */
+      
+      .carousel {
+        margin: 10px auto;
+        width: 1200px;
+        display: flex;
+        overflow-x: auto;
+      }
+      
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .group {
+        display: flex;
+        animation: spin 30s infinite linear;
+        align-items: center;
+        gap: 1em;
+        padding-right: 1em;
+      }
+      
+      .card {
+        flex: 0 0 5em;
+        height: auto;
+        padding: 0em;
+    /*   background: red; */
+        font-size: 3rem;
+        border-radius: .2em;
+        text-align: center;
+        align-content: center;
+        display: grid;
+        grid-template-columns: 100%;
+        gap: .4em 0px;
+      }
+      
+      .card img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+      }
+      
+      @keyframes spin {
+        from {translate: 0;}
+        to {translate: -100%;}
+      }
+      
+      .horiz-flic img {
+        background: green;
+        width: 380px;
+        height: 250px;
+        border-radius: .2em;
+      }
+      
+      .vert-flic img {
+        background: yellow;
+        width: 250px;
+        height: 357px;
+        border-radius: .2em;
+      }
+      
+      .horiz-s-flic img {
+        background: orange;
+        width: 250px;
+        height: 143px;
+        border-radius: .2em;
+        object-fit: cover;
+      }
+      
+      .thee-container {
+        width: 1200px;
+        margin: auto;
+      /*  background-color: red; */
+      }
+      
+      .pic-project h3 {
+        margin-bottom: 0px;
+      }
+      
+      .pic-project {
+        margin-bottom: 60px;
+      }
+      
+      .intro-blurb p {
+        font-size: 1.3em;
+        
+      }
+      
+      .intro-blurb {
+        margin-top: -.7em;
+      }
+      
+      #gbda-201-a1 {
+      scroll-margin-top: 120px;
+      }
+      
+      #qc-grad {
+        scroll-margin-top: 120px;
+      }
+      
+      #acs-bb {
+        scroll-margin-top: 120px;
+      }
+      
+      .proj-blurb {
+        display: grid;
+        grid-template-columns: 55% 40%;
+        gap: 0px;
+      }
+      
+      .right {
+        border-left: 2px solid #ccc;
+        padding-left: 20px;
+      }
+      
+      /* Footer stuff */
+      footer {
+        background-color: #171717;
+        height: 175px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 50px;
+      } 
+
+footer a {
+        color: #E0E0E0;
+      }
+
+
+.f-logos {
+        display: flex;
+        justify-content: space-between;
+        width: 270px;
+      }
+
+.divider {
+        width: 1px;
+        background-color: #ccc;
+        height: 80%;
+        margin: 0 30px;
+      }
+
+    </style>
+    
+    
+  </head>
+  
+  
+  <body>
+    
+    <header>
+     <h1>SAHV</h1>
+     <nav>
+      <ul>
+         <li><a href="index.html">Home</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="videography.html">Videography</a></li>
+        <li><a href="graphics.html">Graphics Design</a></li>
+        <li><a href="b-projects.html">Big Projects</a></li>
+      </ul>
+      </nav>
+     </header>
+  
+  <div class="thee-container">
+    <h1>Shan &amp; Photography</h1>
+    <div class="intro-blurb">
+      <p>My dad's love for photography rubbed off on me at an early age.
+      <br>He documents everything, and growing up around thousands of his photos
+      <br> taught me to appreciate the beauty in everyday moments. 
+      </p>
+    
+       <p>For me, photography is equal parts storytelling and memory-keeping. I love
+      <br> being able to forever preserve the energy of a moment – whether it be its chaos,
+      <br>  intimacy or sheer beauty - any and everything I feel deserving of being remembered.
+      </p>
+      
+      <p>Below is a selection of some of my recent photography work.
+      </p>
+      
+    </div>
+    
+   
+    
+  
+    
+    <div class="pic-project" id="gbda-201-a1">
+      <h3>GBDA 201 - Photography Assignment</h3>
+      
+      <div class="proj-blurb">
+        <p> For GBDA 201 Assignment 1, we were tasked with developing a small
+        photography portfolio spanning multiple subjects and techniques.  
+         <br>Required shots included landscape, neutral and expressive portraits, wildlife, 
+         fashion, macro, action/sports, product, long exposure, and a narrative image. 
+      </p>
+        
+         <p class="right"> <u>Technical Info</u>
+           <br>Camera: Canon 90D, 18-135mm  
+        <br>Date: Due Sept 9th 2025  
+      </p>
+      </div>
+      
+      
+     
+      
+       <!-- Carousel 1 -->
+  <div class="carousel">
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-1.JPG" alt="landscape top down view of courtyard">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-2.jpg" alt="neutral portrait of boy">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-3.JPG" alt="close up of ring">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-4.JPG" alt="robber with knife, girl unaware on phone">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-5.JPG" alt="two skateboarders">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-6.JPG" alt="long exposure night time carnival shot">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-7.JPG" alt="landscape shot dp">
+          </div>
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-8.JPG" alt="flower closeup">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-9.JPG" alt="expressive portrait">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-10.JPG" alt="butterfy closeup">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-11.JPG" alt="barbados key rack product shot">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-12.JPG" alt="landscape shot of arts building">
+          </div>
+        </div>
+      </div>
+    
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-1.JPG" alt="landscape">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-2.jpg" alt="neutral portrait">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-3.JPG" alt="close up of ring">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-4.JPG" alt="robber with knife, girl unaware on phone">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-5.JPG" alt="two skateboarders">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-6.JPG" alt="long exposure night time carnival shot">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-7.JPG" alt="landscape shot dp">
+          </div>
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-8.JPG" alt="flower closeup">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-9.JPG" alt="expressive portrait">
+          </div>
+          <div class="horiz-flic">
+            <img src="gbda-pa/a1-10.JPG" alt="butterfy closeup">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="gbda-pa/a1-11.JPG" alt="barbados key rack product shot">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="gbda-pa/a1-12.JPG" alt="landscape shot of arts building">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>  
+    
+    
+    <div class="pic-project" id="acs-bb">
+      <h3>ACS Event - Bartending &amp; Besties</h3>
+      <div class="proj-blurb">
+        <p>The UW Association of Caribbean Students (ACS) hosted their inaugural 
+          <br> speed-friending and mixology social. The event aimed to bring 
+          members together, 
+          encourage meaningful conversations, and spark new connections through a fun and interactive experience.
+      </p>
+      
+      <p class="right"> <u>Technical Info</u>
+        <br>Camera: Canon 90D, 18-135mm
+      <br> Date: October 7th, 2025 
+      </p>
+      </div>
+      
+      
+       <!-- Carousel 2 -->
+  <div class="carousel">
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-1.JPG" alt="Girl holding drink">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-2.JPG" alt="People lined up for drinks">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-3.JPG" alt="Two girls talking">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-4.JPG" alt="Two boys talking">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-5.JPG" alt="Three people talking">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-6.JPG" alt="Wideshot of event patrons">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-7.JPG" alt="Wideshot of event patrons">
+          </div>
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-8.JPG" alt="3 people talking over drinks">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-9.JPG" alt="Girl being recorded">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-10.JPG" alt="Bartender serving bestie">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-11.JPG" alt="People talking">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-12.JPG" alt="Event patrons">
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-1.JPG" alt="Girl holding drink">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-2.JPG" alt="People lined up for drinks">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-3.JPG" alt="Two girls talking">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-4.JPG" alt="Two boys talking">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-5.JPG" alt="Three people talking">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-6.JPG" alt="Wideshot of event patrons">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-7.JPG" alt="Wideshot of event patrons">
+          </div>
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-8.JPG" alt="3 people talking over drinks">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-9.JPG" alt="Girl being recorded">
+          </div>
+          <div class="horiz-flic">
+            <img src="acs-bb/acs-bb-10.JPG" alt="Bartender serving bestie">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="acs-bb/acs-bb-11.JPG" alt="People talking">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="acs-bb/acs-bb-12.JPG" alt="Event patrons">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>  
+    
+    
+    
+    <div class="pic-project" id="qc-grad">
+      <h3>QC Graduation</h3>
+      <div class="proj-blurb">
+        <p>For my secondary school graduation from Queen’s College Barbados, 
+         I made sure to bring my camera so I could capture a few meaningful 
+         moments before our big day officially started.
+      </p>
+      
+      <p class="right"> <u>Technical Info</u>
+        <br>Camera: Nikon D3300
+        <br> Date: July 13th, 2024
+      </p>
+      </div>
+      
+      
+       <!-- Carousel 1 -->
+  <div class="carousel">
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-1.JPG" alt="Friend group poses for picture">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-2.JPG" alt="Two boys sitting on sundial">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="grad/grad-3.JPG" alt="Portrait of a beautiful girl">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="grad/grad-4.JPG" alt="Couple portrait">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-5.JPG" alt="3 men logging">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-6.JPG" alt="Portrait of a beautiful girl">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="grad/grad-7.JPG" alt="Group of boys posing around sundial">
+          </div>
+          <div class="vert-flic">
+            <img src="grad/grad-8.JPG" alt="Couple portrait">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-9.JPG" alt="Couple portrait">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-10.JPG" alt="3 boys posing for picture">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="grad/grad-11.JPG" alt="Portrait of two girls">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="grad/grad-12.JPG" alt="Boy in suit and shades">
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-1.JPG" alt="Friend group poses for picture">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-2.JPG" alt="Two boys sitting on sundial">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="grad/grad-3.JPG" alt="Portrait of a beautiful girl">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="grad/grad-4.JPG" alt="Couple portrait">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-5.JPG" alt="3 men logging">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-6.JPG" alt="Portrait of a beautiful girl">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="grad/grad-7.JPG" alt="Group of boys posing around sundial">
+          </div>
+          <div class="vert-flic">
+            <img src="grad/grad-8.JPG" alt="Couple portrait">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="grad/grad-9.JPG" alt="Couple portrait">
+          </div>
+          <div class="horiz-flic">
+            <img src="grad/grad-10.JPG" alt="3 boys posing for picture">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="grad/grad-11.JPG" alt="Portrait of two girls">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="grad/grad-12.JPG" alt="Boy in suit and shades">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
+    <div class="pic-project">
+      <h3>Men's Pilates Challenge</h3>
+      
+      <div class="proj-blurb">
+        <p>My mother, a physiotherapist and Pilates instructor, organized a men’s
+       Pilates challenge to introduce more men to the benefits of Pilates,
+       break the idea that it’s “only for women,” and show that it’s tougher
+       (and more rewarding) than they expect. 
+      </p>
+      
+      <p class="right"> <u>Technical Info</u>
+        <br>Camera: Nikon D3300
+        <br>Date: July 17th, 2025
+      </p>
+      </div>
+      
+      
+       <!-- Carousel 1 -->
+  <div class="carousel">
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-1.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-2.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="pc/pc-3.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="pc/pc-4.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-5.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-6.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="pc/pc-7.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="vert-flic">
+            <img src="pc/pc-8.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-9.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-10.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="pc/pc-11.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="pc/pc-12.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+      </div>
+      <div class="group">
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-1.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-2.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="vert-flic">
+            <img src="pc/pc-3.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="pc/pc-4.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-5.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-6.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-s-flic">
+            <img src="pc/pc-7.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="vert-flic">
+            <img src="pc/pc-8.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="horiz-flic">
+            <img src="pc/pc-9.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-flic">
+            <img src="pc/pc-10.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+        <div class="card">
+          <div class="vert-flic">
+            <img src="pc/pc-11.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+          <div class="horiz-s-flic">
+            <img src="pc/pc-12.JPG" alt="Men doing pilates, woman coaches">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
+    </div>
+    
+    
+    <footer>
+    <h3>Let's get up to some <br>shananigans together!</h3>
+       
+    <div class="divider"></div>
+    
+     <p>
+         Phone (Barbadian): +1 (246) 827-1222 <br>
+         Phone (Canadian): +1 (226) 201-7012 <br>
+         Email: <a href="mailto:svaughan@uwaterloo.ca">svaughan@uwaterloo.ca</a> 
+     </p>
+    
+     <div class="divider"></div>
+    
+   <div class="f-logos">
+    <a href="https://www.instagram.com/itz._.shanz?igsh=MTF0aWY1ZG1tazlreA==" target="_blank"><img src="icons/insta-logo.webp" alt="instagram logo" height="70"></a>
+    <a href="https://www.youtube.com/@SpaceLegends/featured" target="_blank"><img src="icons/yt-logo.webp" alt="youtube logo" height="70"></a>   
+    <a href="https://www.linkedin.com/in/shannon-vaughan-1b9913349/" target="_blank"><img src="icons/linkedin-logo.webp" alt="instagram logo" height="70"></a> 
+    </div>  
+  </footer>
+
+    
+   
+    
+  </body>
+</html>
